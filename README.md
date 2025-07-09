@@ -113,7 +113,7 @@ El proyecto expone los siguientes endpoints principales:
     4.  El cliente realiza una solicitud HTTP GET a la API de CountriesNow (`/countries/state/cities/q`).
     5.  La API externa responde con una lista de ciudades.
     6.  El servicio selecciona una ciudad aleatoria de la lista recibida.
-    7.  Esta ciudad aleatoria se devuelve como la ubicación del conductor.
+    7.  Esta ciudad aleatoria se devuelve como la ubicación del conductor y se asigna a la variable city_location.
     8.  En caso de fallo en la comunicación con la API externa, se registra el error y se envía una notificación por correo electrónico y se retorna `None`.
 *   **`/api/user/`**: Incluye los endpoints para la gestión de `User` a través de un ViewSet. Permite realizar operaciones CRUD sobre los usuarios.
 
