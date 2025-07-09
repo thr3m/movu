@@ -3,7 +3,7 @@
 ## Español
 
 ### Descripción del Proyecto
-Este proyecto es un servicio backend/API construido con Django, diseñado para la gestión de flotas. Proporciona funcionalidades para registrar conductores y autos, y obtener la ubicación de un conductor específico, la cual es obtenida de una API externa.
+Este proyecto es un servicio backend/API construido con Django, diseñado para la gestión de flotas. Proporciona funcionalidades para registrar conductores y autos, y obtener la ubicación de un conductor específico, la cual es obtenida de una API externa ([CountriesNow](https://countriesnow.space)).
 
 
 ### Tecnologías Utilizadas
@@ -72,7 +72,7 @@ Para configurar y ejecutar este proyecto, sigue los siguientes pasos:
     *   La base de datos PostgreSQL estará disponible en el puerto `5432`.
 
 4.  **Proceso de Inicialización del Contenedor:**
-    El script `entrypoint.sh` se ejecuta automáticamente al iniciar el contenedor de la API. Este script se encarga de:
+    El script `entrypoint.sh` se ejecuta automáticamente al iniciar el contenedor de la API. `Es importante que este archivo esté formateado usando saltos de línea LF (Line Feed) en lugar de CRLF (Carriage Return + Line Feed) para evitar errores de ejecución en entornos Linux dentro de Docker`. Este script se encarga de:
     *   Recolectar archivos estáticos.
     *   Crear y aplicar migraciones de base de datos.
     *   Ejecutar el script `init_data.py` para la configuración inicial de datos, incluyendo la creación de un superusuario.
@@ -122,7 +122,7 @@ Para una documentación detallada de todos los endpoints y sus parámetros, cons
 ## English
 
 ### Project Description
-This project is a backend/API service built with Django, designed for fleet management. It provides functionalities to register drivers and cars, and to retrieve the location of a specific driver, which is obtained from an external API.
+This project is a backend/API service built with Django, designed for fleet management. It provides functionalities to register drivers and cars, and to retrieve the location of a specific driver, which is obtained from an external API ([CountriesNow](https://countriesnow.space)).
 
 ### Technologies Used
 *   **Backend:** Django 4.2 (used for dependency compatibility), Django REST Framework
@@ -177,7 +177,7 @@ To set up and run this project, follow these steps:
     *   The API will be available at `http://localhost:8000`.
     *   The PostgreSQL database will be available on port `5432`.
 4.  **Container Initialization Process:**
-    The `entrypoint.sh` script automatically runs when the API container starts. This script is responsible for:
+    The `entrypoint.sh` script automatically runs when the API container starts.`It is important that this file is formatted using LF (Line Feed) line endings instead of CRLF (Carriage Return + Line Feed) to avoid execution errors in Linux environments within Docker`. This script is responsible for:
     *   Collecting static files.
     *   Creating and applying database migrations.
     *   Executing the `init_data.py` script for initial data setup, including superuser creation.
