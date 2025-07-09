@@ -2,7 +2,10 @@ import random
 import logging
 from typing import Optional
 
+from requests.exceptions import HTTPError
+
 from apps.fleet.clients.base import CountriesApiClientABC
+from lib.email.utils import send_text_email
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +47,12 @@ class CountryDataService:
                 return None
             city = random.choice(cities)
             return city
+        except HTTPError as e:
+            #! implementation only for testing and showcase purposes
+            error_message = f"Failed to get cities for {state}, {country_name} from CountriesNow API. Error: {e}"
+            logger.exception(error_message)
+            send_text_email(subject="CountriesNow API Error", message=error_message, recipient_list=["foobar@outlook.com"])
+            return None
         except Exception as e:
             logger.exception(f"Service error getting random city for {state}, {country_name}: {e}")
             return None
