@@ -1,10 +1,11 @@
 import logging
 
+from django.http import Http404
+
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets, generics
 from rest_framework.exceptions import NotFound
 from drf_spectacular.utils import extend_schema
-
 from .helpers.viewmixin import MultiSerializerViewSetMixin
 from .serializers import CarSerializer, DriverSerializer, DefaultPagination, DriverOperationsSerializer, DriverLocationSerializer
 from .models import Car, Driver
@@ -83,6 +84,6 @@ class DriverCityLocationRetrieveAPIView(generics.RetrieveAPIView):
         """
         try:
             obj = super().get_object()
-        except NotFound:
+        except Http404:
             raise NotFound(detail="The requested driver with this ID was not found in our system. Please verify the ID and try again.")
         return obj

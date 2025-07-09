@@ -21,7 +21,7 @@ RUN apk update && \
 
 
 # copy project
-COPY entrypoint.sh gunicorn.cfg.py /usr/src/app/
+COPY entrypoint.sh gunicorn.cfg.py pytest.ini /usr/src/app/
 COPY src/ /usr/src/app
 
 # install dependencies

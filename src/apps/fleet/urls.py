@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 router.register(r"car", views.CarModelViewSet, basename="car")
 router.register(r"driver", views.DriverModelViewSet, basename="driver")
 
+app_name = "fleet"
 
 urlpatterns = [
     path("admin/", include(router.urls)),
